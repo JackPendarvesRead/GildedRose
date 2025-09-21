@@ -39,7 +39,7 @@ namespace GildedRose.Tests
                     new Item { Name = "Elixir of the Mongoose", SellIn = 4, Quality = 6 },
                     new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 },
                     new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 14, Quality = 21 },
-                    new Item { Name = "Conjured Mana Cake", SellIn = 2, Quality = 5} // Quality should be 4 when conjured implemented
+                    new Item { Name = "Conjured Mana Cake", SellIn = 2, Quality = 4} // Quality should be 4 when conjured implemented
                 }
             };
 
@@ -54,7 +54,7 @@ namespace GildedRose.Tests
                     new Item { Name = "Elixir of the Mongoose", SellIn = 3, Quality = 5 },
                     new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 },
                     new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 13, Quality = 22 },
-                    new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 4} // Quality should be 4 when conjured implemented
+                    new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 2} // Quality should be 4 when conjured implemented
                 }
             };
 

@@ -146,6 +146,32 @@ namespace GildedRose.Tests
         }
 
         [Theory]
+        [InlineData(20, 18, 5, 4)]
+        [InlineData(35, 31, 0, -1)]
+        public void UpdateQuality_DegradsAtTwiceTheRate_WhenItemIsConjured(int initialQuality, int expectedQuality, int initialSellIn, int expectedSellIn)
+        {
+            // Arrange
+            const string ItemName = "Conjured Item";
+
+            var items = new List<Item>()
+            {
+                new Item() { Name = ItemName, Quality = initialQuality, SellIn = initialSellIn }
+            };
+            var dic = new Dictionary<string, ItemCategory>()
+            {
+                { ItemName, ItemCategory.Conjured }
+            };
+
+            // Act
+            var logic = new ProgramLogic(items, dic);
+            logic.UpdateQuality();
+
+            // Assert
+            logic.Items[0].Quality.Should().Be(expectedQuality);
+            logic.Items[0].SellIn.Should().Be(expectedSellIn); 
+        }
+
+        [Theory]
         [InlineData(100, 1)]
         [InlineData(50, 1)]
         [InlineData(12, 1)]

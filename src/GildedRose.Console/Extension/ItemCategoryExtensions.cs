@@ -86,6 +86,26 @@ namespace GildedRose.Console
             };
 
         private static Action<Item> ConjuredAction =>
-            NormalAction; // Return normal action until conjured action is defined.
+            (item) =>
+            {
+               if (item.Quality > 0)
+                {
+                    item.Quality -= 2;
+                    if (item.Quality < 0)
+                    {
+                        item.Quality = 0;
+                    }
+                }
+
+                item.SellIn -= 1;
+                if (item.SellIn < 0 && item.Quality > 0)
+                {
+                    item.Quality -= 2;
+                    if (item.Quality < 0)
+                    {
+                        item.Quality = 0;
+                    }
+                }
+            };
     }
 }
