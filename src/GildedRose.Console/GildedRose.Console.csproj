@@ -73,15 +73,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GildedRoseConstants.cs" />
-    <Compile Include="InnVentory.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="ItemCategory.cs" />
-    <Compile Include="ItemNames.cs" />
+    <Compile Include="Const\GildedRoseConstants.cs" />
+    <Compile Include="DomainObjects\Item.cs" />
+    <Compile Include="Enum\ItemCategory.cs" />
+    <Compile Include="Helpers\ItemHelper.cs" />
+    <Compile Include="Const\ItemNames.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializableItem.cs" />
+    <Compile Include="DomainObjects\SerializableItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
