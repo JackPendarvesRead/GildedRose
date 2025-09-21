@@ -100,7 +100,7 @@ namespace GildedRose.Tests
         {
             // Arrange
             var logic = new ProgramLogic(new List<Item>
-            {               
+            {
                 new Item() { Name = ItemNames.AgedBrie, SellIn = 10, Quality = 10 }
             });
 
