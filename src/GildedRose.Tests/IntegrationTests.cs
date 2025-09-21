@@ -23,7 +23,7 @@ namespace GildedRose.Tests
             {
                 app.UpdateQuality();
             }
-            app.Items.Should().BeEquivalentTo(expectedState);
+            initialItems.Should().BeEquivalentTo(expectedState);
         }
 
         public static IEnumerable<object[]> GetSimulationTestCases()

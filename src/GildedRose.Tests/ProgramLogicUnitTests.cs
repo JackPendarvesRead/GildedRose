@@ -33,8 +33,8 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(expectedQuality);
-            logic.Items[0].SellIn.Should().Be(expectedSellIn);
+            items[0].Quality.Should().Be(expectedQuality);
+            items[0].SellIn.Should().Be(expectedSellIn);
         }        
 
         [Fact]
@@ -61,7 +61,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(18); // Quality should reduce by 1 
+            items[0].Quality.Should().Be(18); // Quality should reduce by 1 
         }
 
         [Fact]
@@ -88,7 +88,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(0); // Quality should not go below 0
+            items[0].Quality.Should().Be(0); // Quality should not go below 0
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(maxQuality); // Quality should not exceed 50
+            items[0].Quality.Should().Be(maxQuality); // Quality should not exceed 50
         }
 
         [Theory]
@@ -141,8 +141,8 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(expectedQuality); // Quality shoulld increase by 1
-            logic.Items[0].SellIn.Should().Be(expectedSellIn); // Quality shoulld increase by 1
+            items[0].Quality.Should().Be(expectedQuality); // Quality shoulld increase by 1
+            items[0].SellIn.Should().Be(expectedSellIn); // Quality shoulld increase by 1
         }
 
         [Theory]
@@ -167,8 +167,8 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(expectedQuality);
-            logic.Items[0].SellIn.Should().Be(expectedSellIn); 
+            items[0].Quality.Should().Be(expectedQuality);
+            items[0].SellIn.Should().Be(expectedSellIn); 
         }
 
         [Theory]
@@ -212,7 +212,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(expectedQuality);
+            items[0].Quality.Should().Be(expectedQuality);
         }
 
         [Fact]
@@ -239,7 +239,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(0); // Quality should drop to 0 after the concert
+            items[0].Quality.Should().Be(0); // Quality should drop to 0 after the concert
         }
 
 
@@ -267,7 +267,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].Quality.Should().Be(80); // Quality should remain constant
+            items[0].Quality.Should().Be(80); // Quality should remain constant
         }
 
         [Fact]
@@ -294,7 +294,7 @@ namespace GildedRose.Tests
             logic.UpdateQuality();
 
             // Assert
-            logic.Items[0].SellIn.Should().Be(10);
+            items[0].SellIn.Should().Be(10);
         }
     }
 }

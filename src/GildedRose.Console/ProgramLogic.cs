@@ -8,21 +8,21 @@ namespace GildedRose.Console
 {
     public class ProgramLogic
     {
+        private IList<Item> items;
         private readonly Dictionary<string, ItemCategory> itemCategoryMap;
 
         public ProgramLogic(
             IList<Item> items, 
             Dictionary<string, ItemCategory> itemCategoryMap)
         {
-            this.Items = items;
+            this.items = items;
             this.itemCategoryMap = itemCategoryMap;
         }
 
-        public IList<Item> Items { get; private set; }
 
         public void UpdateQuality()
         {
-            foreach (var item in Items)
+            foreach (var item in items)
             {
                 var category = itemCategoryMap[item.Name];
                 var qualityFunction = category.GetQualityFunction();
