@@ -11,14 +11,12 @@ namespace GildedRose.Console
         {
             System.Console.WriteLine("OMGHAI!");
 
-            // Read Items.json and deserialize to List<Item>
             var json = File.ReadAllText("Items.json");
-            var items = JsonSerializer.Deserialize<List<SerializableItem>>(json)
-                .Select(x => x.ToItem())
-                .ToList();
-
-            var logic = new ProgramLogic(items);
-
+            var items = JsonSerializer.Deserialize<List<SerializableItem>>(json);
+            var map = items.ToDictionary(serializedItem => serializedItem.Name, serializedItem => serializedItem.Category);
+            var itemsList = items.Select(x => x.ToItem()).ToList();
+            
+            var logic = new ProgramLogic(itemsList, map);
             logic.UpdateQuality();
 
             System.Console.ReadKey();

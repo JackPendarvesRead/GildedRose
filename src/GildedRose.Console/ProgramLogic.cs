@@ -8,87 +8,25 @@ namespace GildedRose.Console
 {
     public class ProgramLogic
     {
-        public ProgramLogic(IList<Item> items)
+        private readonly Dictionary<string, ItemCategory> itemCategoryMap;
+
+        public ProgramLogic(
+            IList<Item> items, 
+            Dictionary<string, ItemCategory> itemCategoryMap)
         {
             this.Items = items;
+            this.itemCategoryMap = itemCategoryMap;
         }
 
         public IList<Item> Items { get; private set; }
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in Items)
             {
-                if (Items[i].Name != ItemNames.AgedBrie 
-                    && Items[i].Name != ItemNames.BackstagePassesToATAFKAL80ETCConcert)
-                {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != ItemNames.SulfurasHandOfRagnaros)
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
-                }
-                else
-                {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == ItemNames.BackstagePassesToATAFKAL80ETCConcert)
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (Items[i].Name != ItemNames.SulfurasHandOfRagnaros)
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
-
-                if (Items[i].SellIn < 0)
-                {
-                    if (Items[i].Name != ItemNames.AgedBrie)
-                    {
-                        if (Items[i].Name != ItemNames.BackstagePassesToATAFKAL80ETCConcert)
-                        {
-                            if (Items[i].Quality > 0)
-                            {
-                                if (Items[i].Name != ItemNames.SulfurasHandOfRagnaros)
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
-                    }
-                }
+                var category = itemCategoryMap[item.Name];
+                var qualityFunction = category.GetQualityFunction();
+                qualityFunction(item);
             }
         }
     }

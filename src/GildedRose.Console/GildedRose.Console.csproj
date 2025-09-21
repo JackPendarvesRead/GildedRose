@@ -76,7 +76,7 @@
     <Compile Include="Const\GildedRoseConstants.cs" />
     <Compile Include="DomainObjects\Item.cs" />
     <Compile Include="Enum\ItemCategory.cs" />
-    <Compile Include="Helpers\ItemHelper.cs" />
+    <Compile Include="Extension\ItemCategoryExtensions.cs" />
     <Compile Include="Const\ItemNames.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramLogic.cs" />

@@ -18,7 +18,7 @@ namespace GildedRose.Tests
             int daysToSimulate,
             List<Item> expectedState)
         {
-            var app = new ProgramLogic(initialItems);
+            var app = new ProgramLogic(initialItems, Map);
             for(var day = 0; day < daysToSimulate; day++)
             {
                 app.UpdateQuality();
@@ -113,6 +113,16 @@ namespace GildedRose.Tests
             new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 },
             new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20 },
             new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 }
+        };
+
+        private static Dictionary<string, ItemCategory> Map = new Dictionary<string, ItemCategory>
+        {
+            { "+5 Dexterity Vest", ItemCategory.Normal },
+            { "Aged Brie", ItemCategory.Aged },
+            { "Elixir of the Mongoose", ItemCategory.Normal },
+            { "Sulfuras, Hand of Ragnaros", ItemCategory.Legendary },
+            { "Backstage passes to a TAFKAL80ETC concert", ItemCategory.BackstagePass },
+            { "Conjured Mana Cake", ItemCategory.Conjured }
         };
     }
 }
