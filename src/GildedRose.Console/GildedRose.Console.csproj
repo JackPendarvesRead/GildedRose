@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="InnVentory.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemNames.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
